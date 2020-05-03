@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 @SpringBootApplication
 @RestController
 @RequestMapping(value="hello")
+@RequestMapping(value="test")
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application2.class, args);
     }
 
     @RequestMapping(value="/{firstName}/{lastName}",method = RequestMethod.GET)
@@ -21,5 +23,12 @@ public class Application {
                          @PathVariable("lastName") String lastName) {
 
         return String.format("{\"message\":\"Hello %s %s\"}", firstName, lastName);
+    }
+
+    @RequestMapping(value="/{firstName}/{lastName}",method = RequestMethod.GET)
+    public String test( @PathVariable("firstName") String firstName,
+                         @PathVariable("lastName") String lastName) {
+
+        return String.format("{\"message\":\"Testing for %s %s\"}", firstName, lastName);
     }
 }

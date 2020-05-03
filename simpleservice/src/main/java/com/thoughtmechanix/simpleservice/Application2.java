@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class Application2 {
 
     @RequestMapping(value="/{firstName}/{lastName}",method = RequestMethod.GET)
-    public String test( @PathVariable("firstName") String firstName,
+    public String testing( @PathVariable("firstName") String firstName,
                          @PathVariable("lastName") String lastName) {
 
         return String.format("{\"message\":\"Testing for %s %s\"}", firstName, lastName);

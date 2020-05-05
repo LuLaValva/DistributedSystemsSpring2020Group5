@@ -8,10 +8,10 @@ import java.util.UUID;
 
 @Service
 public class UserService {
-    public static int SUCCESS = 0;
-    public static int ERR_INVALID_USERNAME = 1;
-    public static int ERR_WRONG_PASSWORD = 2;
-    public static int ERR_CHALLENGED_DNE = 3;
+    public static final int SUCCESS = 0;
+    public static final int ERR_INVALID_USERNAME = 1;
+    public static final int ERR_WRONG_PASSWORD = 2;
+    public static final int ERR_CHALLENGED_DNE = 3;
 
     private UserList users;
 
@@ -35,7 +35,7 @@ public class UserService {
         if (user == null) {
             return ERR_INVALID_USERNAME;
         }
-        if (!password.equals(user.getPassword)) {
+        if (!password.equals(user.getPassword())) {
             return ERR_WRONG_PASSWORD;
         }
         User user2 = users.getUser(challenged);

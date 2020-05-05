@@ -50,13 +50,13 @@ public class UserServiceController {
             case UserService.SUCCESS:
                 return "Successfully added challenge from " + challenger + " to " + challenged;
             case UserService.ERR_INVALID_USERNAME:
-                return "Invalid Username, try again"
+                return "Invalid Username, try again";
             case UserService.ERR_WRONG_PASSWORD:
-                return "Invalid Password, try again"
+                return "Invalid Password, try again";
             case UserService.ERR_CHALLENGED_DNE:
-                return "" + challenged + " does not exist. Please enter a valid username."
+                return "" + challenged + " does not exist. Please enter a valid username.";
             default:
-                return "Unknown error"
+                return "Unknown error";
         }
     }
 

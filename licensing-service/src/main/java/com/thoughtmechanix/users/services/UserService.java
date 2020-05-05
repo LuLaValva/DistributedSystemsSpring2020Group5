@@ -57,7 +57,7 @@ public class UserService {
         if (!password.equals(user.getPassword())) {
             return ERR_WRONG_PASSWORD;
         }
-        User user2 = users.getUser(challenged);
+        User user2 = users.getUser(challenger);
         if (user2 == null) {
             return ERR_CHALLENGED_DNE;
         }

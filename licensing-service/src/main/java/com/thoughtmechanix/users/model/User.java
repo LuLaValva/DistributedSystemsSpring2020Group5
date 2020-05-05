@@ -57,8 +57,7 @@ public class User{
   }
 
   public boolean acceptChallenger(String challenger) {
-    String challenger = incomingChallengers.get(challenger);
-    if (challenger == null) {
+    if (incomingChallengers.contains(challenger) == null) {
       return false;
     }
     incomingChallengers.remove(challenger);
@@ -67,8 +66,7 @@ public class User{
   }
 
   public boolean challengeAccepted(String challenger) {
-    String challenger = outgoingChallengers.get(challenger);
-    if (challenger == null) {
+    if (outgoingChallengers.contains(challenger) == null) {
       return false;
     }
     outgoingChallengers.remove(challenger);

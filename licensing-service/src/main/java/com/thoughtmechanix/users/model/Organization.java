@@ -1,4 +1,4 @@
-package com.thoughtmechanix.licenses.model;
+package com.thoughtmechanix.users.model;
 
 public class Organization {
     String id;

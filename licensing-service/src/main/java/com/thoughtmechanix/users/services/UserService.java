@@ -8,10 +8,12 @@ import java.util.UUID;
 
 @Service
 public class UserService {
+    public static final int UNKNOWN_ERR = -1;
     public static final int SUCCESS = 0;
     public static final int ERR_INVALID_USERNAME = 1;
     public static final int ERR_WRONG_PASSWORD = 2;
     public static final int ERR_CHALLENGED_DNE = 3;
+    public static final int ERR_CHALLENGED_NOT_IN_LIST = 4;
 
     private UserList users;
 
@@ -47,29 +49,25 @@ public class UserService {
         return SUCCESS;
     }
 
-    public String getChallenges(String username, String password) {
+    public int acceptChallenger(String username, String password, String challenger) {
         User user = users.getUser(username);
         if (user == null) {
-            return "Invalid Username";
+            return ERR_INVALID_USERNAME;
         }
         if (!password.equals(user.getPassword())) {
-            return "Invalid Password";
+            return ERR_WRONG_PASSWORD;
         }
-        StringBuilder str = new StringBuilder();
-        str.append('{');
-        str.append("\"Outgoing Challenges\": [");
-        for(String c: user.getOutgoingChallengers()) {
-            str.append(c);
+        User user2 = users.getUser(challenged);
+        if (user2 == null) {
+            return ERR_CHALLENGED_DNE;
         }
-        str.append(']');
-        str.append("\"Incoming Challenges\": [");
-        for(String c: user.getIncomingChallengers()) {
-            str.append(c);
+        if (!user.acceptChallenger(challenger)) {
+            return ERR_CHALLENGED_NOT_IN_LIST;
         }
-        str.append(']');
-        str.append('}');
-        return str.toString();
-
+        if (!user2.challengeAccepted(username)) {
+            return UNKNOWN_ERR;
+        }
+        return SUCCESS;
     }
 
     public void saveUser(User user){

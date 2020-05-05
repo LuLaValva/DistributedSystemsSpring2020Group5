@@ -6,10 +6,12 @@ public class User{
   private String password;
   private HashSet<String> incomingChallengers;
   private HashSet<String> outgoingChallengers;
+  private HashSet<String> acceptedChallengers;
 
   public User() {
     incomingChallengers = new HashSet<String>();
     outgoingChallengers = new HashSet<String>();
+    acceptedChallengers = new HashSet<String>();
   }
 
   public String getUsername() {
@@ -52,5 +54,25 @@ public class User{
 
   public HashSet<String> getOutgoingChallengers() {
     return outgoingChallengers;
+  }
+
+  public boolean acceptChallenger(String challenger) {
+    String challenger = incomingChallengers.get(challenger);
+    if (challenger == null) {
+      return false;
+    }
+    incomingChallengers.remove(challenger);
+    acceptedChallengers.add(challenger);
+    return true;
+  }
+
+  public boolean challengeAccepted(String challenger) {
+    String challenger = outgoingChallengers.get(challenger);
+    if (challenger == null) {
+      return false;
+    }
+    outgoingChallengers.remove(challenger);
+    acceptedChallengers.add(challenger);
+    return true;
   }
 }

@@ -74,7 +74,7 @@ public class UserServiceController {
             case UserService.ERR_CHALLENGED_DNE:
                 return "" + challenger + " does not exist. Please enter a valid username.";
             case UserService.ERR_CHALLENGED_NOT_IN_LIST:
-                return "" + challenger + " has not challenged you. You must challenge them instead."
+                return "" + challenger + " has not challenged you. You must challenge them instead.";
             default:
                 return "Unknown error";
         }

@@ -56,6 +56,10 @@ public class User{
     return outgoingChallengers;
   }
 
+  public HashSet<String> getAcceptedChallengers() {
+    return acceptedChallengers;
+  }
+
   public boolean acceptChallenger(String challenger) {
     if (!incomingChallengers.contains(challenger)) {
       return false;

@@ -1,6 +1,7 @@
 package com.thoughtmechanix.users.services;
 
 import com.thoughtmechanix.users.model.User;
+import com.thoughtmechanix.users.model.UserList;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;

@@ -28,6 +28,11 @@ public class User{
     return this;
   }
 
+  public User withPassword(String password){
+    this.setPassword( password );
+    return this;
+  }
+
   public void addIncomingChallenger(User challenger) {
     incomingChallengers.add(challenger);
   }

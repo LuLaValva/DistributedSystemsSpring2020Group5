@@ -61,7 +61,7 @@ public class UserServiceController {
     }
 
     @RequestMapping(value="/{challenger}/{password}/accept/{challenged}", method = RequestMethod.GET)
-    public String challenge(@PathVariable("username") String username,
+    public String accept(@PathVariable("username") String username,
                                 @PathVariable("password") String password,
                                 @PathVariable("challenger") String challenger) {
         switch(userService.acceptChallenger(username, password, challenger)) {

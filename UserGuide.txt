@@ -1,0 +1,15 @@
+Root for all commands:
+http://[AWS_IP]:8080/user
+
+Command List:
+
+{username}/{password}
+If {username} does not exist, create a new user with this username and password
+Else if {username}'s password != {password}, display nothing
+Else display all of the information about {username}
+
+{challenger}/{password}/challenge/{challenged}
+Create challenge from {challenger} to {challenged}, accounting for errors
+
+{username}/{password}/accept/{challenger}
+Accept challenge from {challenger} to {username}, accounting for errors

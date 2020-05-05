@@ -7,11 +7,17 @@ import java.util.UUID;
 
 @Service
 public class UserService {
+    private UserList users;
 
     public User getUser(String username, String password){
-        return new User()
-                .withUsername(username)
-                .withPassword(password);
+        User user = users.getUser(username);
+        if (user == null) {
+            return users.putUser(new User().withUsername(username).withPassword(password));
+        }
+        if (password.equals(user.getPassword())){
+            return user;
+        }
+        return null;
     }
 
     public void saveUser(User user){

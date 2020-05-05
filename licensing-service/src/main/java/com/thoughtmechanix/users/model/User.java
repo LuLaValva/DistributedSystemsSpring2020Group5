@@ -7,6 +7,11 @@ public class User{
   private HashSet<User> incomingChallengers;
   private HashSet<User> outgoingChallengers;
 
+  public User() {
+    incomingChallengers = new HashSet<User>();
+    outgoingChallengers = new HashSet<User>();
+  }
+
   public String getUsername() {
     return username;
   }

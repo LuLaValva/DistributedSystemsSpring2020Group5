@@ -8,12 +8,10 @@ import java.util.UUID;
 @Service
 public class UserService {
 
-    public User getUser(String userId){
+    public User getUser(String username, String password){
         return new User()
-                .withId(userId)
-                .withOrganizationId( UUID.randomUUID().toString() )
-                .withProductName("Test Product Name")
-                .withUserType("PerSeat");
+                .withUsername(username)
+                .withPassword(password);
     }
 
     public void saveUser(User user){

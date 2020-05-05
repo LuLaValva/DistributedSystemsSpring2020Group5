@@ -58,12 +58,12 @@ public class UserService {
         StringBuilder str = new StringBuilder();
         str.append('{');
         str.append("\"Outgoing Challenges\": [");
-        for(String c: user.getOutgoingChallenges()) {
+        for(String c: user.getOutgoingChallengers()) {
             str.append(c);
         }
         str.append(']');
         str.append("\"Incoming Challenges\": [");
-        for(String c: user.getIncomingChallenges()) {
+        for(String c: user.getIncomingChallengers()) {
             str.append(c);
         }
         str.append(']');

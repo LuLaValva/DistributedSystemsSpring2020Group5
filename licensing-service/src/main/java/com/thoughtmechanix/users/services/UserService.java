@@ -9,6 +9,10 @@ import java.util.UUID;
 public class UserService {
     private UserList users;
 
+    public UserService(){
+        users = new UserList();
+    }
+
     public User getUser(String username, String password){
         User user = users.getUser(username);
         if (user == null) {

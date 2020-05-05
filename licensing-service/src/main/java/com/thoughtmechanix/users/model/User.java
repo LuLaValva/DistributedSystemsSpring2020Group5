@@ -4,12 +4,12 @@ import java.util.HashSet;
 public class User{
   private String username;
   private String password;
-  private HashSet<User> incomingChallengers;
-  private HashSet<User> outgoingChallengers;
+  private HashSet<String> incomingChallengers;
+  private HashSet<String> outgoingChallengers;
 
   public User() {
-    incomingChallengers = new HashSet<User>();
-    outgoingChallengers = new HashSet<User>();
+    incomingChallengers = new HashSet<String>();
+    outgoingChallengers = new HashSet<String>();
   }
 
   public String getUsername() {
@@ -38,11 +38,19 @@ public class User{
     return this;
   }
 
-  public void addIncomingChallenger(User challenger) {
+  public void addIncomingChallenger(String challenger) {
     incomingChallengers.add(challenger);
   }
 
-  public void addOutgoingChallenger(User challenger) {
+  public void addOutgoingChallenger(String challenger) {
     outgoingChallengers.add(challenger);
+  }
+
+  public HashSet<String> getIncomingChallengers() {
+    return incomingChallengers;
+  }
+
+  public HashSet<String> getOutgoingChallengers() {
+    return outgoingChallengers;
   }
 }

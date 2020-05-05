@@ -41,4 +41,28 @@ public class UserServiceController {
                                 @PathVariable("password") String password) {
         return String.format("This is the Delete");
     }
+
+    @RequestMapping(value="/{challenger}/{password}/challenge/{challenged}", method = RequestMethod.GET)
+    public String challenge(@PathVariable("challenger") String challenged,
+                                @PathVariable("password") String password,
+                                @PathVariable("challenged") String challenged) {
+        switch(userService.challenge(challenger, password, challenged)) {
+            case UserService.SUCCESS:
+                return "Successfully added challenge from " + challenger + " to " + challenged;
+            case UserService.ERR_INVALID_USERNAME:
+                return "Invalid Username, try again"
+            case UserService.ERR_WRONG_PASSWORD:
+                return "Invalid Password, try again"
+            case UserService.ERR_CHALLENGED_DNE:
+                return "" + challenged + " does not exist. Please enter a valid username."
+            default:
+                return "Unknown error"
+        }
+    }
+
+    @RequestMapping(value="/{username}/{password}/challengeList", method = RequestMethod.GET)
+    public String listChallenges(@PathVariable("username") String username,
+                                    @PathVariable("password") String password) {
+        return userService.getChallenges(username, password);
+    }
 }

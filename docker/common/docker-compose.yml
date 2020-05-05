@@ -1,6 +1,6 @@
 version: '2'
 services:
-  simpleservice:
-      image: johncarnell/tmx-simple-service:chapter1
+  licensingservice:
+      image: johncarnell/tmx-licensing-service:chapter2
       ports:
         - "8080:8080"

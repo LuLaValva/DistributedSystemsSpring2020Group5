@@ -17,7 +17,7 @@
     <version>1.4.4.RELEASE</version>
   </parent>
   <modules>
-    <module>simpleservice</module>
+    <module>licensing-service</module>
   </modules>
   <build>
     <plugins>

@@ -80,7 +80,7 @@ public class UserServiceController {
         }
     }
 
-    @RequestMapping(value="/{username}/{password}/delete", method = RequestMethod.GET)
+    @RequestMapping(value="/{username}/{password}/delete", method = RequestMethod.DELETE)
     public String delete(@PathVariable("username") String username,
                          @PathVariable("password") String password) {
         User deleted = userService.getUser(username, password);

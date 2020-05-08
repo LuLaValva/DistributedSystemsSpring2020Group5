@@ -1,5 +1,6 @@
 package com.thoughtmechanix.users.model;
 import java.util.HashMap;
+import java.util.Map;
 
 public class UserList {
     HashMap<String, User> users;
@@ -18,6 +19,8 @@ public class UserList {
     }
 
     public User deleteUser(String username) {
+        // Removes this user from all challenge requests for other users
+        users.forEach((name, user) -> user.removeChallenger(username));
         return users.remove(username);
     }
 }

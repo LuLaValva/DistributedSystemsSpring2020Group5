@@ -77,4 +77,10 @@ public class User{
     acceptedChallengers.add(challenger);
     return true;
   }
+
+  public void removeChallenger(String challenger) {
+    outgoingChallengers.remove(challenger)
+    incomingChallengers.remove(challenger);
+    acceptedChallengers.remove(challenger);
+  }
 }

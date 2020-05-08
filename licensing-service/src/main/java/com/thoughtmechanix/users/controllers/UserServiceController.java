@@ -79,4 +79,16 @@ public class UserServiceController {
                 return "Unknown error";
         }
     }
+
+    @RequestMapping(value="/{username}/{password}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable("username") String username,
+                         @PathVariable("password") String password) {
+        User deleted = userService.getUser(username, password);
+        // If the username and password match, delete the user
+        if(deleted != null) {
+            userService.deleteUser(deleted);
+            return "The user " + username + " has been deleted.";
+        }
+        return "The given username and password do not match.";
+    }
 }

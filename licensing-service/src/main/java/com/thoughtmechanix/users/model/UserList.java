@@ -17,4 +17,7 @@ public class UserList {
         return users.get(username);
     }
 
+    public User deleteUser(String username) {
+        return users.remove(username);
+    }
 }

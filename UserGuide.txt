@@ -13,3 +13,6 @@ Create challenge from {challenger} to {challenged}, accounting for errors
 
 {username}/{password}/accept/{challenger}
 Accept challenge from {challenger} to {username}, accounting for errors
+
+{username}/{password}/delete
+Removes the user associated {username} from the server, including from other user's challenge lists

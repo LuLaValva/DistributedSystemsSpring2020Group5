@@ -16,3 +16,4 @@ Accept challenge from {challenger} to {username}, accounting for errors
 
 {username}/{password}/delete
 Removes the user associated {username} from the server, including from other user's challenge lists
+It fails if {password} is not correct for the given username.

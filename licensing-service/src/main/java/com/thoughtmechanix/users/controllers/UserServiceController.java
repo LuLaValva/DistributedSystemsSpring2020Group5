@@ -92,4 +92,18 @@ public class UserServiceController {
         }
         return "The given username and password do not match.";
     }
+
+    @RequestMapping(value="/{username}/{password}/update/{newPassword}", method = RequestMethod.GET)
+    public String updateUser(@PathVariable("username") String username,
+                             @PathVariable("password") String password,
+                             @PathVariable("newPassword") String newPass) {
+        User user = userService.getUser(username, password);
+        // If the username and password match, update the user's password
+        if(user != null) {
+                                    
+            userService.updateUser(user, newPass);
+            return username + "'s has been updated.";
+        }
+        return "The given username and password do not match.";
+    }
 }

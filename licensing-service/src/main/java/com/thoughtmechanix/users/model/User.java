@@ -83,4 +83,8 @@ public class User{
     incomingChallengers.remove(challenger);
     acceptedChallengers.remove(challenger);
   }
+
+  public void updatePassword(String newPass) {
+    password = newPass;
+  }
 }

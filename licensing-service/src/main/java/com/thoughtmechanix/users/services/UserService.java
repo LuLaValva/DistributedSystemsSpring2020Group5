@@ -73,9 +73,10 @@ public class UserService {
     public void saveUser(User user){
 
     }
-
-    public void updateUser(User user){
-
+    
+    // For now just changes the password
+    public void updateUser(User user, String newPass){
+        user.updatePassword(newPass);
     }
 
     public void deleteUser(User user){

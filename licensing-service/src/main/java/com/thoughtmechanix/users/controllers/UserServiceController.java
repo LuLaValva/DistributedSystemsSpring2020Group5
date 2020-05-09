@@ -102,7 +102,7 @@ public class UserServiceController {
         if(user != null) {
                                     
             userService.updateUser(user, newPass);
-            return username + "'s has been updated.";
+            return username + "'s password has been updated.";
         }
         return "The given username and password do not match.";
     }
